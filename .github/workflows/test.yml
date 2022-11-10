@@ -14,3 +14,9 @@ jobs:
     steps:
       - name: List internal directories
         run: ls -la
+  test-3:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: List internal directories
+        run: ls -la
