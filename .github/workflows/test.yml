@@ -1,22 +1,12 @@
-name: Test Project
+name: Test CI
 on: push
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: List internal directories
-        run: ls -la
-  test-2:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: List internal directories
-        run: ls -la
-  test-3:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: List internal directories
-        run: ls -la
+      - name: Build backend image
+        run: docker-compose build backend
+      - name: Code linting
+        run: docker-compose run --rm backend bash lint.sh

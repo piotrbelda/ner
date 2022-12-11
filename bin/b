@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+COMMAND="docker-compose run --rm backend"
+
+if [[ $# -eq 0 ]]
+then
+    SCRIPT="bash"
+else
+    SCRIPT="$*"
+fi
+
+eval "$COMMAND $SCRIPT"

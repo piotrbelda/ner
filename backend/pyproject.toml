@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["Piotr Bełda <piotrek.belda@wp.pl>"]
+readme = "README.md"
+packages = [{include = "ner_backend"}]
+
+[tool.poetry.dependencies]
+python = "3.10.9"
+fastapi = "^0.88.0"
+uvicorn = "^0.20.0"
+mypy = "^0.991"
+flake8 = "^6.0.0"
+black = "^22.12.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
