@@ -3,12 +3,15 @@
 set -e
 
 COMMAND="docker-compose run --rm backend"
+ARGS="bash"
 
-if [[ $# -eq 0 ]]
+if [[ $# -ne 0 ]]
 then
-    SCRIPT="bash"
-else
-    SCRIPT="$*"
+    case $1 in
+        1) ARGS="$ARGS lint.sh";;
+        2) ARGS="python -m pytest -v";;
+        *) echo "no option matched, entering shell CLI";;
+    esac
 fi
 
-eval "$COMMAND $SCRIPT"
+eval "$COMMAND $ARGS"
